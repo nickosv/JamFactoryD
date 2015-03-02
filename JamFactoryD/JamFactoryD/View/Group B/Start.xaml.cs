@@ -10,18 +10,14 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace JamFactoryD
-{
+namespace JamFactory.View.Group_B {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Start.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
+    public partial class Start : Window {
+        public Start() {
             InitializeComponent();
         }
     }
