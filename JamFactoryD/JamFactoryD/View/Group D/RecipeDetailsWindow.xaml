@@ -1,0 +1,21 @@
+﻿<Window x:Class="JamFactoryD.View.Group_D.RecipeDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recipe details" Height="380" Width="300">
+    <Grid>
+        <Label Name="RecipeNameLabel" Content="Recipe name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="274" FontSize="16"/>
+        <TextBox IsReadOnly="True" Name="CorrespondanceTextBox" HorizontalAlignment="Left" Height="46" Margin="11,246,0,0" TextWrapping="Wrap" Text="TextBox" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Width="274"/>
+        <Label Content="Korrenspondance" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top"/>
+        <TextBox IsReadOnly="True" Name="DocumentationTextBox" HorizontalAlignment="Left" Height="46" Margin="10,169,0,0" TextWrapping="Wrap" Text="Text" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Width="274"/>
+        <Label Content="Dokumentation" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top"/>
+        <Button Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="209,321,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Produkttyper" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Luksus" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,84,0,0" TextWrapping="Wrap" Text="Hverdag" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,100,0,0" TextWrapping="Wrap" Text="Discount" VerticalAlignment="Top"/>
+        <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="233,68,0,0" TextWrapping="Wrap" Text="100g" VerticalAlignment="Top" Width="50"/>
+        <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="233,84,0,0" TextWrapping="Wrap" Text="500g" VerticalAlignment="Top" Width="50"/>
+        <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="233,100,0,0" TextWrapping="Wrap" Text="1000g" VerticalAlignment="Top" Width="50"/>
+
+    </Grid>
+</Window>
