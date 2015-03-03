@@ -1,8 +1,19 @@
 ﻿<Window x:Class="JamFactory.View.Group_D.Start"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Start" Height="300" Width="300">
+        Title="Start" Height="311" Width="355.293" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <CheckBox Content="Luksus" HorizontalAlignment="Left" Margin="123,21,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <CheckBox Content="Hverdags" HorizontalAlignment="Left" Margin="183,21,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <CheckBox Content="Discount" HorizontalAlignment="Left" Margin="258,21,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <ListView x:Name="RecipeList" HorizontalAlignment="Left" Height="218" Margin="10,41,0,0" VerticalAlignment="Top" Width="318">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn />
+                </GridView>
+
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>

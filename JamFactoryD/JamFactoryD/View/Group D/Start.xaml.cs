@@ -19,6 +19,7 @@ namespace JamFactory.View.Group_D {
     public partial class Start : Window {
         public Start() {
             InitializeComponent();
+            RecipeList.Items.Add("Jordbær marmelade | Jordbær, Lakrids");
         }
     }
 }
