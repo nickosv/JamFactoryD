@@ -81,8 +81,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Group D\RecipeDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Compile Include="Controller\ActivityController.cs" />
     <Compile Include="Controller\DevelopmentController.cs" />
+    <Compile Include="Controller\Facades\IngredientFacade.cs" />
+    <Compile Include="Controller\Facades\RecipeFacade.cs" />
     <Compile Include="Controller\IngredientController.cs" />
     <Compile Include="Controller\ProductController.cs" />
     <Compile Include="Controller\ProductionController.cs" />

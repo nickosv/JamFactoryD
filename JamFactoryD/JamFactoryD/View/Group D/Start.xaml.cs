@@ -11,15 +11,26 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using JamFactoryD.Controller;
 
 namespace JamFactory.View.Group_D {
     /// <summary>
     /// Interaction logic for Start.xaml
     /// </summary>
     public partial class Start : Window {
+
+        ProductController _controller;
         public Start() {
             InitializeComponent();
-            RecipeList.Items.Add("Jordbær marmelade | Jordbær, Lakrids");
+            _controller = new ProductController();
+
+            PrintRecipes();
+        }
+
+        private void PrintRecipes() {
+            foreach (string recipe in _controller.GetRecipes()) {
+                RecipeList.Items.Add(recipe);
+            } 
         }
     }
 }

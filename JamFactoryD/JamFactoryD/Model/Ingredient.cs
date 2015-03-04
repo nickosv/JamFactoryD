@@ -17,5 +17,10 @@ namespace JamFactory.Model
             Price = price;
             Amount = amount;
         }
+
+        public Ingredient(string name, double price) {
+            Name = name;
+            Price = price;
+        }
     }
 }
