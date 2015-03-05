@@ -20,12 +20,17 @@ namespace JamFactoryD.Controller.Facades {
 
             try {
                 connect.Open();
-                SqlCommand sqlCmd = new SqlCommand("4_GetRecipes", connect);
+                SqlCommand sqlCmd = new SqlCommand("4_GetIngredientsAmountFromRecipeID", connect);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.Add(new SqlParameter("@RecipeID", recipe.ID));
                 SqlDataReader reader = sqlCmd.ExecuteReader();
 
                 while (reader.Read()) {
+<<<<<<< HEAD
                     Ingredient ingredient = new Ingredient((string)reader["Name"], (double)reader["Price"]);
+=======
+                    Ingredient ingredient = new Ingredient((string)reader["Name"], Convert.ToDouble(reader["Price"]));
+>>>>>>> origin/master
                     ingredients.Add(new IngredientLine((int)reader["Amount"], recipe, ingredient));
                 }
             }
