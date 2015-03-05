@@ -29,7 +29,7 @@ namespace JamFactoryD.Controller.Facades {
                 }
             }
             catch (Exception e) {
-                System.Windows.MessageBox.Show(e.Message);
+                throw e;
             }
             finally {
                 connect.Close();
