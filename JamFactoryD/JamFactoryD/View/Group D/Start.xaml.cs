@@ -28,9 +28,10 @@ namespace JamFactory.View.Group_D {
         }
 
         private void PrintRecipes() {
-            foreach (string recipe in _controller.GetRecipes()) {
+            RecipeList.ItemsSource = _controller.GetRecipes();
+            /*foreach (string recipe in _controller.GetRecipes()) {
                 RecipeList.Items.Add(recipe);
-            } 
+            } */
         }
     }
 }

@@ -10,7 +10,7 @@ using JamFactory.Model;
 namespace JamFactoryD.Controller.Facades {
     static class RecipeFacade {
 
-        private static string _connect = "Server=ealdb20.eal.local;" + "Database=EJL20_DB;" + "User Id=ejl20_usr;" + "Password=Baz1nga20";
+        private static string _connect = "Server=ealdb1.eal.local;" + "Database=EJL20_DB;" + "User Id=ejl20_usr;" + "Password=Baz1nga20";
 
         // Fetching recipes from DB
         internal static List<JamFactory.Model.Recipe> GetRecipes() {
@@ -25,11 +25,11 @@ namespace JamFactoryD.Controller.Facades {
                 SqlDataReader reader = sqlCmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    recipes.Add(new Recipe((int)reader["ID"], reader["Name"].ToString(), reader["Documentation"].ToString(), reader["Correspondance"].ToString()));
+                    recipes.Add(new Recipe((int)reader["ID"], reader["Name"].ToString(), reader["Documentation"].ToString(), reader["Correspondence"].ToString()));
                 }
             }
             catch (Exception e) {
-                throw e;
+                System.Windows.MessageBox.Show(e.Message);
             }
             finally {
                 connect.Close();

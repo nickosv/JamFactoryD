@@ -10,7 +10,7 @@ using JamFactory.Model;
 namespace JamFactoryD.Controller.Facades {
     class IngredientFacade {
 
-        private static string _connect = "Server=ealdb20.eal.local;" + "Database=EJL20_DB;" + "User Id=ejl20_usr;" + "Password=Baz1nga20";
+        private static string _connect = "Server=ealdb1.eal.local;" + "Database=EJL20_DB;" + "User Id=ejl20_usr;" + "Password=Baz1nga20";
 
         // Fetching recipes from DB
         internal static List<IngredientLine> GetIngredientsFromRecipe(Recipe recipe) {
