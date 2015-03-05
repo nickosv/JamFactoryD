@@ -17,7 +17,14 @@ namespace JamFactoryD.Controller {
             List<string> recipesString = new List<string>();
             // Adding ingredients to recipes
             foreach (Recipe recipe in recipes) {
+                List<string> ingredients = new List<string>();
                 recipe.Ingredients = IngredientFacade.GetIngredientsFromRecipe(recipe);
+
+                foreach (IngredientLine ingredient in recipe.Ingredients) {
+                    ingredients.Add(ingredient.Ingredient.Name);
+                }
+
+                recipesString.Add(recipe.Name + " | " + string.Join(", ", ingredients));
             }
 
             return recipesString;
