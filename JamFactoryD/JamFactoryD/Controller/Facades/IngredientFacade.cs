@@ -26,7 +26,7 @@ namespace JamFactoryD.Controller.Facades {
 
                 while (reader.Read()) {
                     Ingredient ingredient = new Ingredient((string)reader["Name"], (double)reader["Price"]);
-                    ingredients.Add(new IngredientLine((int)reader["Amount"], recipe, ingredient);
+                    ingredients.Add(new IngredientLine((int)reader["Amount"], recipe, ingredient));
                 }
             }
             catch (Exception e) {
