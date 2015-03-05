@@ -26,11 +26,7 @@ namespace JamFactoryD.Controller.Facades {
                 SqlDataReader reader = sqlCmd.ExecuteReader();
 
                 while (reader.Read()) {
-<<<<<<< HEAD
-                    Ingredient ingredient = new Ingredient((string)reader["Name"], (double)reader["Price"]);
-=======
                     Ingredient ingredient = new Ingredient((string)reader["Name"], Convert.ToDouble(reader["Price"]));
->>>>>>> origin/master
                     ingredients.Add(new IngredientLine((int)reader["Amount"], recipe, ingredient));
                 }
             }
