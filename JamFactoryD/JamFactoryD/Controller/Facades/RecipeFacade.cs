@@ -25,7 +25,7 @@ namespace JamFactoryD.Controller.Facades {
                 SqlDataReader reader = sqlCmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    recipes.Add(new Recipe((int)reader["ID"], reader["Name"].ToString(), reader["Documentation"].ToString(), reader["Correspondance"].ToString()));
+                    recipes.Add(new Recipe((int)reader["ID"], reader["Name"].ToString(), reader["Documentation"].ToString(), reader["Correspondence"].ToString()));
                 }
             }
             catch (Exception e) {
