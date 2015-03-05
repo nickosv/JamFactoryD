@@ -12,7 +12,11 @@ namespace JamFactoryD.Controller.Facades {
 
         private static string _connect = "Server=ealdb1.eal.local;" + "Database=EJL20_DB;" + "User Id=ejl20_usr;" + "Password=Baz1nga20";
 
-        // Fetching recipes from DB
+        /// <summary>
+        /// Fetches ingredientLines with ingredient from database
+        /// </summary>
+        /// <param name="recipe">The recipe you want the ingredients from</param>
+        /// <returns>A List of ingredientLines with recipes</returns>
         internal static List<IngredientLine> GetIngredientsFromRecipe(Recipe recipe) {
             List<IngredientLine> ingredients = new List<IngredientLine>();
 

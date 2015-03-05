@@ -6,7 +6,7 @@
         <CheckBox Content="Luksus" HorizontalAlignment="Left" Margin="123,21,0,0" VerticalAlignment="Top" IsChecked="True"/>
         <CheckBox Content="Hverdags" HorizontalAlignment="Left" Margin="183,21,0,0" VerticalAlignment="Top" IsChecked="True"/>
         <CheckBox Content="Discount" HorizontalAlignment="Left" Margin="258,21,0,0" VerticalAlignment="Top" IsChecked="True"/>
-        <ListView x:Name="RecipeList" HorizontalAlignment="Left" Height="218" Margin="10,41,0,0" VerticalAlignment="Top" Width="318">
+        <ListView x:Name="RecipeList" HorizontalAlignment="Left" Height="218" Margin="10,41,0,0" VerticalAlignment="Top" Width="318" MouseDoubleClick="RecipeList_MouseDoubleClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="308" />

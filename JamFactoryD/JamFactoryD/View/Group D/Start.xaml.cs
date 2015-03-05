@@ -27,11 +27,21 @@ namespace JamFactory.View.Group_D {
             PrintRecipes();
         }
 
+        /// <summary>
+        /// Adds all the recipes to ListView
+        /// </summary>
         private void PrintRecipes() {
+            // Adding recipes to ListView
             RecipeList.ItemsSource = _controller.GetRecipes();
-            /*foreach (string recipe in _controller.GetRecipes()) {
-                RecipeList.Items.Add(recipe);
-            } */
+        }
+
+        /// <summary>
+        /// Opens a new window with recipe details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RecipeList_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
+            _controller.ShowDetailsForRecipe(RecipeList.SelectedIndex);
         }
     }
 }
