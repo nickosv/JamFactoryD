@@ -72,5 +72,13 @@ namespace JamFactoryD.View.Group_D
         private void BackButton_Click(object sender, RoutedEventArgs e) {
             this.Close();
         }
+
+        private void Kvalitetssikring_btn_Click(object sender, RoutedEventArgs e)
+        {
+            KvalitetsSikring kval = new KvalitetsSikring();
+            kval.Show();
+            this.Close();
+
+        }
     }
 }
