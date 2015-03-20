@@ -53,7 +53,7 @@ namespace JamFactoryD.Controller {
                 view.SetController(this);
             }
             catch (Exception e) {
-                
+                System.Windows.MessageBox.Show(e.Message);
             }
         }
 
@@ -83,5 +83,30 @@ namespace JamFactoryD.Controller {
 
             return productList;
         }
+
+        public List<string> GetRecipeByType(List<string> parameters) {
+
+            List<string> recipesString = new List<string>();
+
+            for (int i = 0; i < parameters.Count; i++) {
+
+                recipes = RecipeFacade.GetRecipeByType(parameters[i]);
+
+                // Adding ingredients to recipes
+                foreach (Recipe recipe in recipes) {
+                    List<string> ingredients = new List<string>();
+                    recipe.Ingredients = IngredientFacade.GetIngredientsFromRecipe(recipe);
+
+                    foreach (IngredientLine ingredient in recipe.Ingredients) {
+                        ingredients.Add(ingredient.Ingredient.Name);
+                    }
+
+                    recipesString.Add(recipe.Name + " | " + string.Join(", ", ingredients));
+                }
+            }
+
+            return recipesString;
+        }
+        
     }
 }
