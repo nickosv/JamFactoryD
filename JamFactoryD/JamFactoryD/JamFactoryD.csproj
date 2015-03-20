@@ -69,6 +69,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Group D\KvalitetsSikring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Group D\Start.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +109,9 @@
     </Compile>
     <Compile Include="View\Group C\Start.xaml.cs">
       <DependentUpon>Start.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Group D\KvalitetsSikring.xaml.cs">
+      <DependentUpon>KvalitetsSikring.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Group D\Start.xaml.cs">
       <DependentUpon>Start.xaml</DependentUpon>
