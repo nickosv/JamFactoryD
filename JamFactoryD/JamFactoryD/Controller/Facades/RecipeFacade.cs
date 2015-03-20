@@ -73,5 +73,32 @@ namespace JamFactoryD.Controller.Facades {
 
             return products;
         }
+
+        internal static List<Recipe> GetRecipeByType(string variant) {
+            List<Recipe> recipes = new List<Recipe>();
+
+            SqlConnection connect = new SqlConnection(_connect);
+
+            try {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("4_GetRecipeByType", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.Add(new SqlParameter("@Variant", variant));
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+
+                while (reader.Read()) {
+                    recipes.Add(new Recipe((int)reader["ID"], reader["Name"].ToString(), reader["Documentation"].ToString(), reader["Correspondence"].ToString()));
+                }
+            }
+            catch (Exception e) {
+                throw e;
+            }
+            finally {
+                connect.Close();
+                connect.Dispose();
+            }
+
+            return recipes;
+        }
     }
 }
