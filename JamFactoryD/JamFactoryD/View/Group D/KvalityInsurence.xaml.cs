@@ -17,9 +17,9 @@ namespace JamFactoryD.View.Group_D
     /// <summary>
     /// Interaction logic for KvalitetsSikring.xaml
     /// </summary>
-    public partial class KvalitetsSikring : Window
+    public partial class KvalityInsurence : Window
     {
-        public KvalitetsSikring()
+        public KvalityInsurence()
         {
             InitializeComponent();
         }

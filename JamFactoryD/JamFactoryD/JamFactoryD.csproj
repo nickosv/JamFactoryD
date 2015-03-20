@@ -69,7 +69,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Group D\KvalitetsSikring.xaml">
+    <Page Include="View\Group D\KvalityInsurence.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,8 +110,8 @@
     <Compile Include="View\Group C\Start.xaml.cs">
       <DependentUpon>Start.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Group D\KvalitetsSikring.xaml.cs">
-      <DependentUpon>KvalitetsSikring.xaml</DependentUpon>
+    <Compile Include="View\Group D\KvalityInsurence.xaml.cs">
+      <DependentUpon>KvalityInsurence.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Group D\Start.xaml.cs">
       <DependentUpon>Start.xaml</DependentUpon>

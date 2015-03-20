@@ -75,7 +75,7 @@ namespace JamFactoryD.View.Group_D
 
         private void Kvalitetssikring_btn_Click(object sender, RoutedEventArgs e)
         {
-            KvalitetsSikring kval = new KvalitetsSikring();
+            KvalityInsurence kval = new KvalityInsurence();
             kval.Show();
             this.Close();
 
