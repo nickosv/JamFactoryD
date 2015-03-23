@@ -44,5 +44,30 @@ namespace JamFactoryD.Controller.Facades {
 
             return ingredients;
         }
+
+        public static List<Ingredient> GetIngredient(int RecipeID)
+        {
+            SqlConnection connect = new SqlConnection(_connect);
+            List<Ingredient> ingredients = new List<Ingredient>();
+            try {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("4_GetRecipeResources", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.Add(new SqlParameter("@ID", RecipeID));
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+
+                 while (reader.Read()) {
+                       ingredients.Add(new Ingredient((string)reader["Price"], Convert.ToDouble(reader["Amount"]), Convert.ToInt32(reader["Name"])));
+                 }
+            } 
+            catch (Exception e) {
+                throw e;
+            }
+            finally {
+                connect.Close();
+                connect.Dispose();
+            }
+            return ingredients;
+        }
     }
 }

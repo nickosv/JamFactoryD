@@ -39,6 +39,7 @@ namespace JamFactoryD.View.Group_D
             _controller = productController;
             PrintRecipe();
             PrintProducts();
+            ShowIngredient();
         }
 
         /// <summary>
@@ -77,6 +78,10 @@ namespace JamFactoryD.View.Group_D
         {
             KvalityInsurence kval = new KvalityInsurence();
             kval.Show();
+        }
+
+        private void ShowIngredient(){
+            _controller.GetIngredient();
         }
     }
 }
