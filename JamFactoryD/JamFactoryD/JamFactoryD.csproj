@@ -92,12 +92,15 @@
     <Compile Include="Controller\ActivityController.cs" />
     <Compile Include="Controller\DevelopmentController.cs" />
     <Compile Include="Controller\Facades\IngredientFacade.cs" />
+    <Compile Include="Controller\Facades\QualityInsurenceFacade.cs" />
     <Compile Include="Controller\Facades\RecipeFacade.cs" />
     <Compile Include="Controller\IngredientController.cs" />
     <Compile Include="Controller\ProductController.cs" />
     <Compile Include="Controller\ProductionController.cs" />
     <Compile Include="Model\IngredientLine.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\QualityActivity.cs" />
+    <Compile Include="Model\QualityControl.cs" />
     <Compile Include="Model\Recipe.cs" />
     <Compile Include="Model\Fruit.cs" />
     <Compile Include="Model\Ingredient.cs" />
