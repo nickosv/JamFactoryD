@@ -39,7 +39,7 @@ namespace JamFactoryD.View.Group_D
             _controller = productController;
             PrintRecipe();
             PrintProducts();
-            //ShowIngredient();
+            ShowIngredient();
         }
 
         /// <summary>
@@ -80,9 +80,8 @@ namespace JamFactoryD.View.Group_D
             kval.Show();
         }
 
-        //private void ShowIngredient(){
-        //    ProductController.GetIngredient();
-        //}
-        //Ingredients
+        private void ShowIngredient(){
+            _controller.GetIngredient();
+        }
     }
 }
