@@ -1,0 +1,28 @@
+﻿<Window x:Class="JamFactoryD.View.Group_D.KvalityInsurence"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="KvalitetsSikring" Height="375" Width="575" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <ComboBox Name="Control_Combo" HorizontalAlignment="Left" Margin="124,55,0,0" VerticalAlignment="Top" Width="150"/>
+        <Label Name="KvalitetssikringLabel" Content="Kvalitets Sikring" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="524" FontSize="20"/>
+        <Label Content="Kontrol:" FontSize="13" HorizontalAlignment="Left" Margin="22,55,0,0" VerticalAlignment="Top" Width="97"/>
+        <Label Content="Beskrivelse:" FontSize="13" HorizontalAlignment="Left" Margin="22,100,0,0" VerticalAlignment="Top" Width="97"/>
+        <ComboBox Name="Activity_Combo" HorizontalAlignment="Left" Margin="384,55,0,0" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Aktivitet:" FontSize="13" HorizontalAlignment="Left" Margin="282,52,0,0" VerticalAlignment="Top" Width="97"/>
+        <TextBox Name="ControlDescription_Box" IsReadOnly="True" HorizontalAlignment="Left" Height="50" Margin="124,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Tjek Tidspunkt:" FontSize="13" HorizontalAlignment="Left" Margin="22,169,0,0" VerticalAlignment="Top" Width="97"/>
+        <TextBox Name="TimeCheck_Box" IsReadOnly="True" HorizontalAlignment="Left" Height="27" Margin="124,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Produkt:" FontSize="13" HorizontalAlignment="Left" Margin="22,216,0,0" VerticalAlignment="Top" Width="97"/>
+        <Label Content="Medarbejder:" FontSize="13" HorizontalAlignment="Left" Margin="22,261,0,0" VerticalAlignment="Top" Width="97"/>
+        <TextBox Name="Product_Box" IsReadOnly="True" HorizontalAlignment="Left" Height="27" Margin="124,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBox Name="Employee_Box" IsReadOnly="True" HorizontalAlignment="Left" Height="27" Margin="124,261,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Beskrivelse:" FontSize="13" HorizontalAlignment="Left" Margin="282,100,0,0" VerticalAlignment="Top" Width="97"/>
+        <TextBox Name="ActivityDescription_Box" IsReadOnly="True" HorizontalAlignment="Left" Height="50" Margin="384,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Detaljer:" FontSize="13" HorizontalAlignment="Left" Margin="282,169,0,0" VerticalAlignment="Top" Width="97"/>
+        <TextBox Name="Details_Box" IsReadOnly="True" HorizontalAlignment="Left" Height="74" Margin="384,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Tid:" FontSize="13" HorizontalAlignment="Left" Margin="282,261,0,0" VerticalAlignment="Top" Width="97"/>
+        <TextBox Name="Time_Box" IsReadOnly="True" HorizontalAlignment="Left" Height="27" Margin="384,261,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <Button Name="Back_btn" Content="Tilbage" HorizontalAlignment="Left" Margin="393,313,0,0" VerticalAlignment="Top" Width="141" Click="Back_btn_Click" Height="23"/>
+
+    </Grid>
+</Window>

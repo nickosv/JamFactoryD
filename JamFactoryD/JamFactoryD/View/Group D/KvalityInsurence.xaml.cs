@@ -17,11 +17,20 @@ namespace JamFactoryD.View.Group_D
     /// <summary>
     /// Interaction logic for KvalitetsSikring.xaml
     /// </summary>
-    public partial class KvalitetsSikring : Window
+    public partial class KvalityInsurence : Window
     {
-        public KvalitetsSikring()
+        public KvalityInsurence()
         {
             InitializeComponent();
+            Activity_Combo.IsEnabled = false;
+            ActivityDescription_Box.IsEnabled = false;
+            Details_Box.IsEnabled = false;
+            Time_Box.IsEnabled = false;
+        }
+
+        private void Back_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
