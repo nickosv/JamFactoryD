@@ -108,5 +108,11 @@ namespace JamFactoryD.Controller {
             return recipesString;
         }
         
+        //public static List<Ingredient> GetIngredient(){
+
+        //    IngredientFacade.GetIngredient(5, 7, "fds");
+
+           
+        //}
     }
 }
