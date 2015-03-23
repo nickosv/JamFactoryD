@@ -78,8 +78,6 @@ namespace JamFactoryD.View.Group_D
         {
             KvalityInsurence kval = new KvalityInsurence();
             kval.Show();
-            this.Close();
-
         }
 
         //private void ShowIngredient(){
