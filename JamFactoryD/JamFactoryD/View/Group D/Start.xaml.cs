@@ -23,12 +23,20 @@ namespace JamFactory.View.Group_D {
             InitializeComponent();
             _controller = new ProductController();
             PrintRecipes();
+            parameters.Add("Luksus");
+            parameters.Add("Hverdags");
+            parameters.Add("Discount");
         }
 
         // Adds all the recipes to ListView
         private void PrintRecipes() {
             // Adding recipes to ListView
             RecipeList.ItemsSource = _controller.GetRecipes();
+        }
+        private void PrintSortedRecipeByType() {
+            RecipeList.ItemsSource = null;
+            RecipeList.Items.Clear();
+            RecipeList.ItemsSource = _controller.GetRecipeByType(parameters);
         }
 
         // Opens a new window with recipe details
@@ -37,37 +45,49 @@ namespace JamFactory.View.Group_D {
             _controller.ShowDetailsForRecipe(RecipeList.SelectedIndex);
         }
 
-        private void luksus_Checked(object sender, RoutedEventArgs e) {
-            parameters.Add("Luksus");
-        }
-
-        private void weekday_Checked(object sender, RoutedEventArgs e) {
-            parameters.Add("Hverdags");
-        }
-
-        private void discount_Checked(object sender, RoutedEventArgs e) {
-            parameters.Add("Discount");
-        }
-
-        private void luksus_Unchecked(object sender, RoutedEventArgs e) {
-            SortParameters("Luksus");
-        }
-
-        private void weekday_Unchecked(object sender, RoutedEventArgs e) {
-            SortParameters("Hverdags");
-        }
-
-        private void discount_Unchecked(object sender, RoutedEventArgs e) {
-            SortParameters("Discount");
-        }
         public void SortParameters(string parameter) {
+            // Removes parameter from parameterlist
             for (int i = 0; i < parameters.Count; i++){
                 if (parameters[i] == parameter) {
                     parameters.RemoveAt(i);
                 }
-			}
-                
-            
+			} 
+        }
+
+        private void luksus_Click(object sender, RoutedEventArgs e) {
+            // unchecked
+            if (luksus.IsChecked != true) {
+                SortParameters("Luksus");
+            }
+            // checked
+            else {
+                parameters.Add("Luksus");
+            }
+            PrintSortedRecipeByType();
+        }
+
+        private void weekday_Click(object sender, RoutedEventArgs e) {
+            // unchecked
+            if (weekday.IsChecked != true) {
+                SortParameters("Hverdags");
+            }
+            // checked
+            else {
+                parameters.Add("Hverdags");
+            }
+            PrintSortedRecipeByType();
+        }
+
+        private void discount_Click(object sender, RoutedEventArgs e) {
+            // unchecked
+            if (discount.IsChecked != true) {
+                SortParameters("Discount");
+            }
+            // checked
+            else {
+                parameters.Add("Discount");
+            }
+            PrintSortedRecipeByType();
         }
 
     }
