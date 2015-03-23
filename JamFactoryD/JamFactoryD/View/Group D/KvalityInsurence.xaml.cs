@@ -22,6 +22,15 @@ namespace JamFactoryD.View.Group_D
         public KvalityInsurence()
         {
             InitializeComponent();
+            Activity_Combo.IsEnabled = false;
+            ActivityDescription_Box.IsEnabled = false;
+            Details_Box.IsEnabled = false;
+            Time_Box.IsEnabled = false;
+        }
+
+        private void Back_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
