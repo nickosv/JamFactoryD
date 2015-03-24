@@ -12,7 +12,7 @@ namespace JamFactoryD.Controller {
     class ProductController {
 
         List<Recipe> recipes;
-        Recipe selectedRecipe;
+        public Recipe selectedRecipe;
 
         /// <summary>
         /// Fetches recipes and ingredients from database
@@ -120,8 +120,7 @@ namespace JamFactoryD.Controller {
 
             foreach (Ingredient ingredient in ingredients)
             {
-                //ingredientsString.Add(ingredient.Name);
-                ingredientsString.Add(ingredient.Name + " | " + string.Join(", ", ingredients));
+                ingredientsString.Add(ingredient.Name);
             } 
 
             return ingredientsString;
