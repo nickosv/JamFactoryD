@@ -53,11 +53,11 @@ namespace JamFactoryD.Controller.Facades {
                 connect.Open();
                 SqlCommand sqlCmd = new SqlCommand("4_GetRecipeResources", connect);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
-                sqlCmd.Parameters.Add(new SqlParameter("@ID", RecipeID));
+                sqlCmd.Parameters.Add(new SqlParameter("@RecipeID", RecipeID));
                 SqlDataReader reader = sqlCmd.ExecuteReader();
 
                  while (reader.Read()) {
-                       ingredients.Add(new Ingredient((string)reader["Price"], Convert.ToDouble(reader["Amount"]), Convert.ToInt32(reader["Name"])));
+                     ingredients.Add(new Ingredient((string)reader["Name"], Convert.ToDouble(reader["Amount"]), Convert.ToInt32(reader["Price"])));
                  }
             } 
             catch (Exception e) {

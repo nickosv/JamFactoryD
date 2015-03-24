@@ -35,7 +35,8 @@ namespace JamFactoryD.View.Group_D
         /// Sets the controller to the currently used controller to be able to fetch the selected recipe
         /// </summary>
         /// <param name="productController"></param>
-        internal void SetController(ProductController productController) {
+        internal void SetController(ProductController productController)
+        {
             _controller = productController;
             PrintRecipe();
             PrintProducts();
@@ -45,7 +46,8 @@ namespace JamFactoryD.View.Group_D
         /// <summary>
         /// Prints the selected recipes information
         /// </summary>
-        private void PrintRecipe() {
+        private void PrintRecipe()
+        {
             Dictionary<string, string> recipe = _controller.GetSelectedRecipe();
 
             RecipeNameLabel.Content = recipe["Name"];
@@ -56,10 +58,12 @@ namespace JamFactoryD.View.Group_D
         /// <summary>
         /// Prints product for selected recipe
         /// </summary>
-        private void PrintProducts() {
+        private void PrintProducts()
+        {
             Dictionary<string, int> products = _controller.GetProducts();
 
-            foreach (KeyValuePair<string, int> product in products) {
+            foreach (KeyValuePair<string, int> product in products)
+            {
                 ProductNames.Text += product.Key + "\n";
                 ProductAmounts.Text += product.Value + "g\n";
             }
@@ -70,7 +74,8 @@ namespace JamFactoryD.View.Group_D
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BackButton_Click(object sender, RoutedEventArgs e) {
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
 
@@ -80,8 +85,12 @@ namespace JamFactoryD.View.Group_D
             kval.Show();
         }
 
-        private void ShowIngredient(){
-            _controller.GetIngredient();
+        private void ShowIngredient()
+        {
+            foreach (string items in _controller.GetIngredient())
+            {
+                Ingredient.Items.Add(items);
+            }
         }
     }
 }

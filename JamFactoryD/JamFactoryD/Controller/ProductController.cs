@@ -120,8 +120,7 @@ namespace JamFactoryD.Controller {
 
             foreach (Ingredient ingredient in ingredients)
             {
-                //ingredientsString.Add(ingredient.Name);
-                ingredientsString.Add(ingredient.Name + " | " + string.Join(", ", ingredients));
+                ingredientsString.Add(ingredient.Name);
             } 
 
             return ingredientsString;
