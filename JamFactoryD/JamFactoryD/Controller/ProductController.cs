@@ -12,7 +12,7 @@ namespace JamFactoryD.Controller {
     class ProductController {
 
         List<Recipe> recipes;
-        Recipe selectedRecipe;
+        public Recipe selectedRecipe;
 
         /// <summary>
         /// Fetches recipes and ingredients from database

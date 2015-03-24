@@ -97,6 +97,7 @@
     <Compile Include="Controller\IngredientController.cs" />
     <Compile Include="Controller\ProductController.cs" />
     <Compile Include="Controller\ProductionController.cs" />
+    <Compile Include="Controller\QualityControlController.cs" />
     <Compile Include="Model\IngredientLine.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\QualityActivity.cs" />

@@ -13,5 +13,13 @@ namespace JamFactoryD.Model
         public string Details { get; set; }
         public DateTime Time { get; set; }
 
+        public QualityActivity(string name, string description, string details, DateTime time)
+        {
+            this.Name = name;
+            this.Description = description;
+            this.Details = details;
+            this.Time = time;
+        }
+
     }
 }

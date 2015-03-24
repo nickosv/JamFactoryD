@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using JamFactoryD.Controller;
 
 namespace JamFactoryD.View.Group_D
 {
@@ -19,6 +20,10 @@ namespace JamFactoryD.View.Group_D
     /// </summary>
     public partial class KvalityInsurence : Window
     {
+        Controller.QualityControlController _qualityController;
+        Controller.ProductController _productController;
+        JamFactory.View.Group_D.Start startView;
+        
         public KvalityInsurence()
         {
             InitializeComponent();
@@ -26,6 +31,15 @@ namespace JamFactoryD.View.Group_D
             ActivityDescription_Box.IsEnabled = false;
             Details_Box.IsEnabled = false;
             Time_Box.IsEnabled = false;
+            _qualityController = new QualityControlController();
+            _productController = new ProductController();
+            startView = new JamFactory.View.Group_D.Start();
+
+            for (int i = 0; i < _qualityController.GetQualityInsurence(startView.RecipeList.SelectedIndex).Count; i++)
+			{
+                Control_Combo.Items.Add(_qualityController.GetQualityInsurence(startView.RecipeList.SelectedIndex)[i].Name);
+			}
+            
         }
 
         private void Back_btn_Click(object sender, RoutedEventArgs e)
