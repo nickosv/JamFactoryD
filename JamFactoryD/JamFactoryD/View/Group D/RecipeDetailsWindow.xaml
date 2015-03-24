@@ -13,7 +13,7 @@
         <TextBlock x:Name="ProductNames" HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="ProductAmounts" TextAlignment="Right" HorizontalAlignment="Left" Margin="184,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
         <Button Name="Kvalitetssikring_btn" Content="Kvalitetssikring" HorizontalAlignment="Left" Margin="10,211,0,0" VerticalAlignment="Top" Width="93" Click="Kvalitetssikring_btn_Click"/>
-        <ListBox HorizontalAlignment="Left" Height="100" Margin="13,106,0,0" VerticalAlignment="Top" Width="271"/>
+        <ListBox Name="Ingredient" HorizontalAlignment="Left" Height="100" Margin="13,106,0,0" VerticalAlignment="Top" Width="271"/>
 
     </Grid>
 </Window>
