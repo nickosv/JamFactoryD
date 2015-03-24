@@ -35,16 +35,21 @@ namespace JamFactoryD.View.Group_D
             _productController = new ProductController();
             startView = new JamFactory.View.Group_D.Start();
 
-            for (int i = 0; i < _qualityController.GetQualityInsurence(startView.RecipeList.SelectedIndex).Count; i++)
+            for (int i = 0; i < _qualityController.GetQualityInsurence().Count; i++)
 			{
-                Control_Combo.Items.Add(_qualityController.GetQualityInsurence(startView.RecipeList.SelectedIndex)[i].Name);
+                Control_Combo.Items.Add(_qualityController.GetQualityInsurence()[i].Name);
 			}
-            
+          
         }
 
         private void Back_btn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Control_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

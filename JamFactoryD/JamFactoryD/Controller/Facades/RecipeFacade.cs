@@ -62,7 +62,7 @@ namespace JamFactoryD.Controller.Facades {
                 SqlDataReader reader = sqlCmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    products.Add(new Product((string)reader["Variant"], (int)reader["Size"], (int)reader["FruitContent"], Convert.ToDouble(reader["Price"])));
+                    products.Add(new Product((int)reader["ID"], (string)reader["Variant"], (int)reader["Size"], (int)reader["FruitContent"], Convert.ToDouble(reader["Price"])));
                 }
             }
             catch (Exception e) {

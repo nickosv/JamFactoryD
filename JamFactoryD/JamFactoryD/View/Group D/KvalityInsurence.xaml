@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="KvalitetsSikring" Height="375" Width="575" WindowStartupLocation="CenterScreen">
     <Grid>
-        <ComboBox Name="Control_Combo" HorizontalAlignment="Left" Margin="124,55,0,0" VerticalAlignment="Top" Width="150"/>
+        <ComboBox Name="Control_Combo" HorizontalAlignment="Left" Margin="124,55,0,0" VerticalAlignment="Top" Width="150" SelectionChanged="Control_Combo_SelectionChanged"/>
         <Label Name="KvalitetssikringLabel" Content="Kvalitets Sikring" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="524" FontSize="20"/>
         <Label Content="Kontrol:" FontSize="13" HorizontalAlignment="Left" Margin="22,55,0,0" VerticalAlignment="Top" Width="97"/>
         <Label Content="Beskrivelse:" FontSize="13" HorizontalAlignment="Left" Margin="22,100,0,0" VerticalAlignment="Top" Width="97"/>

@@ -29,15 +29,15 @@ namespace JamFactoryD.Controller.Facades
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader reader = sqlCmd.ExecuteReader();
 
-                while (reader.Read())
+                while (reader.Read() && reader.HasRows)
                 {
                     ActivityList.Add(new Model.QualityActivity(Convert.ToString(reader["AL_Title"]), Convert.ToString(reader["AL_Description"]), Convert.ToString(reader["AL_Details"]), Convert.ToDateTime(reader["AL_Time"])));
                     ControlList.Add(new Model.QualityControl(
-                                    Convert.ToString(reader["c.Name"]),
-                                    Convert.ToString(reader["c.Description"]), 
-                                    Convert.ToString(reader["Person.Name"]), 
-                                    Convert.ToString(reader["p.Variant"]), 
-                                    Convert.ToString(reader["c.TimeCheck"]), 
+                                    Convert.ToString(reader["Name"]),
+                                    Convert.ToString(reader["Description"]), 
+                                    Convert.ToString(reader["Name"]), 
+                                    Convert.ToString(reader["Variant"]), 
+                                    Convert.ToString(reader["TimeCheck"]), 
                                     ActivityList));
                 }
             }
