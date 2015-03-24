@@ -44,17 +44,17 @@ namespace JamFactoryD.Controller {
             try {
                 // Sets the clicked recipe to selected to use when the window is opened
                 selectedRecipe = recipes[index];
-
-                // Making the view and showing it
-                View.Group_D.RecipeDetailsWindow view = new View.Group_D.RecipeDetailsWindow();
-                view.Show();
-
-                // Binds this controller to the view so it can fetch selected recipe later
-                view.SetController(this);
             }
             catch (Exception e) {
-                System.Windows.MessageBox.Show("lol");
+                System.Windows.MessageBox.Show(e.Message + "lol");
             }
+
+            // Making the view and showing it
+            View.Group_D.RecipeDetailsWindow view = new View.Group_D.RecipeDetailsWindow();
+            view.Show();
+
+            // Binds this controller to the view so it can fetch selected recipe later
+            view.SetController(this);
         }
 
         /// <summary>
@@ -87,27 +87,27 @@ namespace JamFactoryD.Controller {
         public List<string> GetRecipeByType(List<string> parameters) {
 
             List<string> recipesString = new List<string>();
+            recipes.Clear();
 
-            for (int i = 0; i < parameters.Count; i++) {
+            recipes = RecipeFacade.GetRecipeByType(parameters);
 
-                recipes = RecipeFacade.GetRecipeByType(parameters[i]);
+            // Adding ingredients to recipes
+            foreach (Recipe recipe in recipes) {
+                List<string> ingredients = new List<string>();
+                recipe.Ingredients = IngredientFacade.GetIngredientsFromRecipe(recipe);
 
-                // Adding ingredients to recipes
-                foreach (Recipe recipe in recipes) {
-                    List<string> ingredients = new List<string>();
-                    recipe.Ingredients = IngredientFacade.GetIngredientsFromRecipe(recipe);
-
-                    foreach (IngredientLine ingredient in recipe.Ingredients) {
-                        ingredients.Add(ingredient.Ingredient.Name);
-                    }
-                    string stringRecipe = recipe.Name + " | " + string.Join(", ", ingredients);
-
-                    //recipesString.Add(stringRecipe);
-                    // Removes Dups
-                    if (!recipesString.Contains(stringRecipe)) {
-                        recipesString.Add(stringRecipe);
-                    }
+                foreach (IngredientLine ingredient in recipe.Ingredients) {
+                    ingredients.Add(ingredient.Ingredient.Name);
                 }
+                string stringRecipe = recipe.Name + " | " + string.Join(", ", ingredients);
+
+                recipesString.Add(stringRecipe);
+
+                // Removes Dups
+                //if (!recipesString.Contains(stringRecipe)) {
+                //    recipesString.Add(stringRecipe);
+                    
+                //}
             }
 
             return recipesString;

@@ -45,23 +45,23 @@ namespace JamFactory.View.Group_D {
             _controller.ShowDetailsForRecipe(RecipeList.SelectedIndex);
         }
 
-        public void SortParameters(string parameter) {
-            // Removes parameter from parameterlist
-            for (int i = 0; i < parameters.Count; i++){
-                if (parameters[i] == parameter) {
-                    parameters.RemoveAt(i);
-                }
-			} 
-        }
+        //public void SortParameters(string parameter) {
+        //    // Removes parameter from parameterlist
+        //    for (int i = 0; i < parameters.Count; i++){
+        //        if (parameters[i] == parameter) {
+        //            parameters.RemoveAt(i);
+        //        }
+        //    } 
+        //}
 
         private void luksus_Click(object sender, RoutedEventArgs e) {
             // unchecked
             if (luksus.IsChecked != true) {
-                SortParameters("Luksus");
+                parameters[0] = "null";
             }
             // checked
             else {
-                parameters.Add("Luksus");
+                parameters[0] = "Luksus";
             }
             PrintSortedRecipeByType();
         }
@@ -69,11 +69,11 @@ namespace JamFactory.View.Group_D {
         private void weekday_Click(object sender, RoutedEventArgs e) {
             // unchecked
             if (weekday.IsChecked != true) {
-                SortParameters("Hverdags");
+                parameters[1] = "null";
             }
             // checked
             else {
-                parameters.Add("Hverdags");
+                parameters[1] = "Hverdags";
             }
             PrintSortedRecipeByType();
         }
@@ -81,11 +81,11 @@ namespace JamFactory.View.Group_D {
         private void discount_Click(object sender, RoutedEventArgs e) {
             // unchecked
             if (discount.IsChecked != true) {
-                SortParameters("Discount");
+                parameters[2] = "null";
             }
             // checked
             else {
-                parameters.Add("Discount");
+                parameters[2] = "Discount";
             }
             PrintSortedRecipeByType();
         }
