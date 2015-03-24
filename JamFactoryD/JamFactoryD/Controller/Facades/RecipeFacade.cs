@@ -18,6 +18,7 @@ namespace JamFactoryD.Controller.Facades {
         /// <returns>A list of recipes</returns>
         internal static List<Recipe> GetRecipes() {
             List<Recipe> recipes = new List<Recipe>();
+            
 
             SqlConnection connect = new SqlConnection(_connect);
 
@@ -48,6 +49,7 @@ namespace JamFactoryD.Controller.Facades {
         /// <param name="recipe">The recipe the products belongs to</param>
         /// <returns>A List of products</returns>
         internal static List<Product> GetProductsFromRecipe(Recipe recipe) {
+            
             List<Product> products = new List<Product>();
 
             SqlConnection connect = new SqlConnection(_connect);
@@ -74,8 +76,9 @@ namespace JamFactoryD.Controller.Facades {
             return products;
         }
 
-        internal static List<Recipe> GetRecipeByType(string variant) {
+        internal static List<Recipe> GetRecipeByType(List<string> variants) {
             List<Recipe> recipes = new List<Recipe>();
+            List<Recipe> NoDupRecipes = new List<Recipe>();
 
             SqlConnection connect = new SqlConnection(_connect);
 
@@ -83,23 +86,45 @@ namespace JamFactoryD.Controller.Facades {
                 connect.Open();
                 SqlCommand sqlCmd = new SqlCommand("4_GetRecipeByType", connect);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
-                sqlCmd.Parameters.Add(new SqlParameter("@Variant", variant));
+                sqlCmd.Parameters.Add(new SqlParameter("@Variant1", variants[0]));
+                sqlCmd.Parameters.Add(new SqlParameter("@Variant2", variants[1]));
+                sqlCmd.Parameters.Add(new SqlParameter("@Variant3", variants[2]));
                 SqlDataReader reader = sqlCmd.ExecuteReader();
 
                 while (reader.Read()) {
                     Recipe _recipe = new Recipe((int)reader["ID"], reader["Name"].ToString(), reader["Documentation"].ToString(), reader["Correspondence"].ToString());
-                        recipes.Add(_recipe);
+                    recipes.Add(_recipe);  
                 }
+                Dictionary<string, int> dups = new Dictionary<string, int>();
+
+                for (int i = 0; i < recipes.Count; i++){
+			         if(!dups.ContainsKey(recipes[i].Name)){
+                         dups.Add(recipes[i].Name, i);
+                     }
+			    }
+                
+                for (int i = 0; i < recipes.Count; i++) {
+                    if (dups.ContainsValue(i)) {
+                        NoDupRecipes.Add(recipes[i]);
+                    }
+                }
+                
+                //for (int i = 0; i < recipes.Count; i++) {
+                //    if (!dups.ContainsValue(i)) {
+                //        recipes.RemoveAt(i);
+                //    }
+                //}
+
             }
             catch (Exception e) {
-                throw e;
+                System.Windows.MessageBox.Show(e.Message);
             }
             finally {
                 connect.Close();
                 connect.Dispose();
             }
 
-            return recipes;
+            return NoDupRecipes;
         }
     }
 }
