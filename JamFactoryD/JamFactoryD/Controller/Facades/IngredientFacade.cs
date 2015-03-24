@@ -45,7 +45,7 @@ namespace JamFactoryD.Controller.Facades {
             return ingredients;
         }
 
-        public static List<Ingredient> GetIngredient(int Price, double Amount, string Name)
+        public static List<Ingredient> GetIngredient(int RecipeID)
         {
             SqlConnection connect = new SqlConnection(_connect);
             List<Ingredient> ingredients = new List<Ingredient>();
@@ -53,9 +53,7 @@ namespace JamFactoryD.Controller.Facades {
                 connect.Open();
                 SqlCommand sqlCmd = new SqlCommand("4_GetRecipeResources", connect);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
-                sqlCmd.Parameters.Add(new SqlParameter("@Price", Price));
-                sqlCmd.Parameters.Add(new SqlParameter("@Amount", Amount));
-                sqlCmd.Parameters.Add(new SqlParameter("@Name", Name));
+                sqlCmd.Parameters.Add(new SqlParameter("@ID", RecipeID));
                 SqlDataReader reader = sqlCmd.ExecuteReader();
 
                  while (reader.Read()) {

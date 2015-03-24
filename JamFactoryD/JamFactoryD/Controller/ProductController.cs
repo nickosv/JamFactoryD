@@ -112,12 +112,19 @@ namespace JamFactoryD.Controller {
 
             return recipesString;
         }
-        
-        //public static List<Ingredient> GetIngredient(){
 
-        //    IngredientFacade.GetIngredient(5, 7, "fds");
+        public List<string> GetIngredient()
+        {
+            List<Ingredient> ingredients = IngredientFacade.GetIngredient(selectedRecipe.ID);
+            List<string> ingredientsString = new List<string>();
 
-           
-        //}
+            foreach (Ingredient ingredient in ingredients)
+            {
+                //ingredientsString.Add(ingredient.Name);
+                ingredientsString.Add(ingredient.Name + " | " + string.Join(", ", ingredients));
+            } 
+
+            return ingredientsString;
+        }
     }
 }
