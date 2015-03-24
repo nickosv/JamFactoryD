@@ -12,7 +12,7 @@ namespace JamFactoryD.Controller {
     class ProductController {
 
         List<Recipe> recipes;
-        Recipe selectedRecipe;
+        public Recipe selectedRecipe;
 
         /// <summary>
         /// Fetches recipes and ingredients from database
@@ -46,7 +46,7 @@ namespace JamFactoryD.Controller {
                 selectedRecipe = recipes[index];
             }
             catch (Exception e) {
-                System.Windows.MessageBox.Show(e.Message + "lol");
+                System.Windows.MessageBox.Show(e.Message);
             }
 
             // Making the view and showing it
