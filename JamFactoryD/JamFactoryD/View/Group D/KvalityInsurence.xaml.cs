@@ -20,7 +20,6 @@ namespace JamFactoryD.View.Group_D
     /// </summary>
     public partial class KvalityInsurence : Window
     {
-        Controller.QualityControlController _qualityController;
         Controller.ProductController _productController;
         JamFactory.View.Group_D.Start startView;
         
@@ -31,13 +30,12 @@ namespace JamFactoryD.View.Group_D
             ActivityDescription_Box.IsEnabled = false;
             Details_Box.IsEnabled = false;
             Time_Box.IsEnabled = false;
-            _qualityController = new QualityControlController();
             _productController = new ProductController();
             startView = new JamFactory.View.Group_D.Start();
 
-            for (int i = 0; i < _qualityController.GetQualityInsurence().Count; i++)
+            for (int i = 0; i < QualityControlController.GetQualityInsurence().Count; i++)
 			{
-                Control_Combo.Items.Add(_qualityController.GetQualityInsurence()[i].Name);
+                Control_Combo.Items.Add(QualityControlController.GetQualityInsurence()[i].Name);
 			}
           
         }

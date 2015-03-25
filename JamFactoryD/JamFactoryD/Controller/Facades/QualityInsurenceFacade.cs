@@ -53,5 +53,35 @@ namespace JamFactoryD.Controller.Facades
 
             return ControlList;
         }
+
+        internal static int GetProductsFromRecipe(Recipe recipe)
+        {
+            int productID = 0;
+            SqlConnection connect = new SqlConnection(_connect);
+            try
+            {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("4_GetProductsFromRecipeID", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.Add(new SqlParameter("@RecipeID", recipe.ID));
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    productID = (int)reader["ID"];
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                connect.Close();
+                connect.Dispose();
+            }
+            return productID;
+        }
+
     }
 }

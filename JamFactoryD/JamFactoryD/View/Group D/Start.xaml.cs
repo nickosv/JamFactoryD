@@ -43,6 +43,7 @@ namespace JamFactory.View.Group_D {
 
         private void RecipeList_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
             _controller.ShowDetailsForRecipe(RecipeList.SelectedIndex);
+            QualityControlController.SetProductID(_controller.selectedRecipe);
         }
 
         //public void SortParameters(string parameter) {
