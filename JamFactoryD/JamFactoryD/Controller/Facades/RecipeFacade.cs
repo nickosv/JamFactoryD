@@ -126,5 +126,53 @@ namespace JamFactoryD.Controller.Facades {
 
             return NoDupRecipes;
         }
+
+        public static void SetTestVariant(int RecipeID)
+        {
+             SqlConnection connect = new SqlConnection(_connect);
+            try {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("MoveRecipeFromDevelopment", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.Add(new SqlParameter("@RecipeID", RecipeID));
+                sqlCmd.ExecuteNonQuery();
+            }
+            catch (Exception e) {
+                System.Windows.MessageBox.Show(e.Message);
+            }
+            finally {
+                connect.Close();
+                connect.Dispose();
+            }
+        }
+
+        public static bool CheckTestVariant(int RecipeID)
+        {
+            SqlConnection connect = new SqlConnection(_connect);
+            bool testVariant = new bool();
+            try
+            {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("4_GetTestVariantFromRecipeID", connect);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.Add(new SqlParameter("@RecipeID", RecipeID));
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    testVariant = Convert.ToBoolean(reader["TestVariant"]);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                connect.Close();
+                connect.Dispose();
+            }
+            return testVariant;
+        }
     }
 }
