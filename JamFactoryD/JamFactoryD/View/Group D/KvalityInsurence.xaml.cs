@@ -19,10 +19,7 @@ namespace JamFactoryD.View.Group_D
     /// Interaction logic for KvalitetsSikring.xaml
     /// </summary>
     public partial class KvalityInsurence : Window
-    {
-        Controller.ProductController _productController;
-        JamFactory.View.Group_D.Start startView;
-        
+    {   
         public KvalityInsurence()
         {
             InitializeComponent();
@@ -30,14 +27,16 @@ namespace JamFactoryD.View.Group_D
             ActivityDescription_Box.IsEnabled = false;
             Details_Box.IsEnabled = false;
             Time_Box.IsEnabled = false;
-            _productController = new ProductController();
-            startView = new JamFactory.View.Group_D.Start();
-
-            for (int i = 0; i < QualityControlController.GetQualityInsurence().Count; i++)
-			{
-                Control_Combo.Items.Add(QualityControlController.GetQualityInsurence()[i].Name);
-			}
-          
+            QualityControlController.GetQualityInsurence();
+            for (int i = 0; i < QualityControlController.ControlList.Count; i++)
+            {
+                Control_Combo.Items.Add(QualityControlController.ControlList[i].Name);
+                for (int k = 0; k < QualityControlController.ControlList[i].ActivityList.Count; k++)
+			    {
+                    Activity_Combo.Items.Add(QualityControlController.ControlList[i].ActivityList[i].Name);
+			    }
+                
+            }
         }
 
         private void Back_btn_Click(object sender, RoutedEventArgs e)
@@ -47,7 +46,21 @@ namespace JamFactoryD.View.Group_D
 
         private void Control_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ControlDescription_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].Description;
+            TimeCheck_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].TimeCheck;
+            Product_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].Variant;
+            Employee_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].Employee;
+            Activity_Combo.IsEnabled = true;
+            ActivityDescription_Box.IsEnabled = true;
+            Details_Box.IsEnabled = true;
+            Time_Box.IsEnabled = true;
+        }
 
+        private void Activity_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ActivityDescription_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].ActivityList[Activity_Combo.SelectedIndex].Description;
+            Details_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].ActivityList[Activity_Combo.SelectedIndex].Details;
+            Time_Box.Text = Convert.ToString(QualityControlController.ControlList[Control_Combo.SelectedIndex].ActivityList[Activity_Combo.SelectedIndex].Time);
         }
     }
 }
