@@ -15,15 +15,14 @@ namespace JamFactoryD.Model
         public string TimeCheck { get; set; }
         public List<QualityActivity> ActivityList { get; set; }
 
-        public QualityControl(string name, string description, string employee, string variant, string timeCheck, List<QualityActivity> activityList)
+        public QualityControl(string name, string description, string employee, string variant, string timeCheck)
         {
-            activityList = new List<QualityActivity>();
+            ActivityList = new List<QualityActivity>();
             this.Name = name;
             this.Description = description;
             this.Employee = employee;
             this.Variant = variant;
             this.TimeCheck = timeCheck;
-            this.ActivityList = activityList;
         }
 
         

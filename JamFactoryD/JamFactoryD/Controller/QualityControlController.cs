@@ -14,11 +14,11 @@ namespace JamFactoryD.Controller
     static class QualityControlController
     {
         static int ProductID;
+        public static List<QualityControl> ControlList = new List<QualityControl>();
 
-        public static List<QualityControl> GetQualityInsurence()
+        public static void GetQualityInsurence()
         {
-            return QualityInsurenceFacade.GetQualityInsurence(ProductID); ;
-            
+            ControlList = QualityInsurenceFacade.GetQualityInsurence(ProductID);   
         }
 
         public static void SetProductID(Recipe recipe)

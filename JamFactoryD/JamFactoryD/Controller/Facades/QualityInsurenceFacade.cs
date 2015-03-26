@@ -33,12 +33,13 @@ namespace JamFactoryD.Controller.Facades
                 {
                     ActivityList.Add(new Model.QualityActivity(Convert.ToString(reader["AL_Title"]), Convert.ToString(reader["AL_Description"]), Convert.ToString(reader["AL_Details"]), Convert.ToDateTime(reader["AL_Time"])));
                     ControlList.Add(new Model.QualityControl(
+                                    Convert.ToString(reader["C_Name"]),
+                                    Convert.ToString(reader["Description"]),
                                     Convert.ToString(reader["Name"]),
-                                    Convert.ToString(reader["Description"]), 
-                                    Convert.ToString(reader["Name"]), 
-                                    Convert.ToString(reader["Variant"]), 
-                                    Convert.ToString(reader["TimeCheck"]), 
-                                    ActivityList));
+                                    Convert.ToString(reader["Variant"]),
+                                    Convert.ToString(reader["TimeCheck"])
+                                    ) { ActivityList = ActivityList });
+
                 }
             }
             catch (Exception e)
@@ -50,7 +51,7 @@ namespace JamFactoryD.Controller.Facades
                 connect.Close();
                 connect.Dispose();
             }
-
+            
             return ControlList;
         }
 
