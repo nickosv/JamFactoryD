@@ -31,10 +31,6 @@ namespace JamFactoryD.View.Group_D
             for (int i = 0; i < QualityControlController.ControlList.Count; i++)
             {
                 Control_Combo.Items.Add(QualityControlController.ControlList[i].Name);
-                for (int k = 0; k < QualityControlController.ControlList[i].ActivityList.Count; k++)
-			    {
-                    Activity_Combo.Items.Add(QualityControlController.ControlList[i].ActivityList[i].Name);
-			    }
                 
             }
         }
@@ -46,21 +42,40 @@ namespace JamFactoryD.View.Group_D
 
         private void Control_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ActivityDescription_Box.Clear();
+            Details_Box.Clear();
+            Time_Box.Clear();
+            Activity_Combo.Items.Clear();
+            
+            for (int k = 0; k < QualityControlController.ControlList[Control_Combo.SelectedIndex].ActivityList.Count; k++)
+            {
+                Activity_Combo.Items.Add(QualityControlController.ControlList[Control_Combo.SelectedIndex].ActivityList[k].Name);
+            }
             ControlDescription_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].Description;
             TimeCheck_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].TimeCheck;
             Product_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].Variant;
             Employee_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].Employee;
+            
             Activity_Combo.IsEnabled = true;
             ActivityDescription_Box.IsEnabled = true;
             Details_Box.IsEnabled = true;
             Time_Box.IsEnabled = true;
+            
         }
 
         private void Activity_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ActivityDescription_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].ActivityList[Activity_Combo.SelectedIndex].Description;
-            Details_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].ActivityList[Activity_Combo.SelectedIndex].Details;
-            Time_Box.Text = Convert.ToString(QualityControlController.ControlList[Control_Combo.SelectedIndex].ActivityList[Activity_Combo.SelectedIndex].Time);
+            try
+            {
+                ActivityDescription_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].ActivityList[Activity_Combo.SelectedIndex].Description;
+                Details_Box.Text = QualityControlController.ControlList[Control_Combo.SelectedIndex].ActivityList[Activity_Combo.SelectedIndex].Details;
+                Time_Box.Text = Convert.ToString(QualityControlController.ControlList[Control_Combo.SelectedIndex].ActivityList[Activity_Combo.SelectedIndex].Time);
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
     }
 }
