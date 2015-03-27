@@ -125,5 +125,14 @@ namespace JamFactoryD.Controller {
 
             return ingredientsString;
         }
+
+        public void SetTestVariant()
+        {
+            RecipeFacade.SetTestVariant(selectedRecipe.ID);
+        }
+
+        public bool CheckTestVariant(){
+            return RecipeFacade.CheckTestVariant(selectedRecipe.ID);
+        }
     }
 }

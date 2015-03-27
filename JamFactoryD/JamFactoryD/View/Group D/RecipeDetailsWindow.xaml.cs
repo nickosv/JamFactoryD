@@ -41,6 +41,7 @@ namespace JamFactoryD.View.Group_D
             PrintRecipe();
             PrintProducts();
             ShowIngredient();
+            TestVariant_Load();
         }
 
         /// <summary>
@@ -90,6 +91,23 @@ namespace JamFactoryD.View.Group_D
             foreach (string items in _controller.GetIngredient())
             {
                 Ingredient.Items.Add(items);
+            }
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            _controller.SetTestVariant();
+        }
+
+        private void TestVariant_Load()
+        {
+            if (_controller.CheckTestVariant() == true)
+            {
+                TestVariant.IsChecked = true;
+            }
+            else
+            {
+                TestVariant.IsChecked = false;
             }
         }
     }
