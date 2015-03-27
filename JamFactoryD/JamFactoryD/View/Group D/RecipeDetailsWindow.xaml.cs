@@ -97,6 +97,11 @@ namespace JamFactoryD.View.Group_D
         private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
             _controller.SetTestVariant();
+
+            if (TestVariant.IsChecked != true)
+            {
+                DocumentationTextBox.Clear();
+            }
         }
 
         private void TestVariant_Load()
