@@ -19,7 +19,6 @@ namespace JamFactoryD.Model
         public QualityControl(int id, string name, string description, string employee, string variant, string timeCheck, List<QualityActivity> activityList)
         {
             this.ActivityList = activityList;
-            ActivityList = new List<QualityActivity>();
             this.ID = id;
             this.Name = name;
             this.Description = description;

@@ -18,7 +18,7 @@ namespace JamFactoryD.Controller
 
         public static void GetQualityInsurence()
         {
-            ControlList = QualityInsurenceFacade.GetQualityInsurence(ProductID);   
+            ControlList = QualityInsurenceFacade.GetControlByProductID(2);   
         }
 
         public static void SetProductID(Recipe recipe)

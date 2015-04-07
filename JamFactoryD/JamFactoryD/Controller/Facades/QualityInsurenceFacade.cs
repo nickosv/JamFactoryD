@@ -16,10 +16,11 @@ namespace JamFactoryD.Controller.Facades
         /// Fetches Control and Activities from database
         /// </summary>
         /// 
-        internal static List<Model.QualityControl> GetQualityInsurence(int productID)
+        internal static List<Model.QualityControl> GetControlByProductID(int productID)
         {
             List<Model.QualityControl> ControlList = new List<Model.QualityControl>();
-            List<Model.QualityActivity> ActivityList = new List<Model.QualityActivity>();
+            List<Model.QualityControl> NoDublicateList = new List<Model.QualityControl>();
+
             SqlConnection connect = new SqlConnection(_connect);
             try
             {
@@ -37,11 +38,39 @@ namespace JamFactoryD.Controller.Facades
                                     Convert.ToString(reader["Description"]),
                                     Convert.ToString(reader["Name"]),
                                     Convert.ToString(reader["Variant"]),
-                                    Convert.ToString(reader["TimeCheck"])
-                                    ) { ActivityList = ActivityList });
-                    ActivityList.Add(new Model.QualityActivity(Convert.ToString(reader["AL_Title"]), Convert.ToString(reader["AL_Description"]), Convert.ToString(reader["AL_Details"]), Convert.ToDateTime(reader["AL_Time"])));
-                    
+                                    Convert.ToString(reader["TimeCheck"]),
+                                    GetAcitivtyByControl(Convert.ToInt32(reader["ID"]))
+                                    ));
+                }
 
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                connect.Close();
+                connect.Dispose();
+            }
+            return NoDublicateList;
+        }
+
+        internal static List<Model.QualityActivity> GetAcitivtyByControl(int controlID)
+        {
+            List<Model.QualityActivity> ActivityList = new List<Model.QualityActivity>();
+            SqlConnection connect = new SqlConnection(_connect);
+            try
+            {
+                connect.Open();
+                SqlCommand sqlCmd = new SqlCommand("4_GetActivityByControl", connect);
+                sqlCmd.Parameters.Add(new SqlParameter("@AL_C_ID", controlID));
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+
+                while (reader.Read() && reader.HasRows)
+                {
+                    ActivityList.Add(new Model.QualityActivity(Convert.ToString(reader["AL_Title"]), Convert.ToString(reader["AL_Description"]), Convert.ToString(reader["AL_Details"]), Convert.ToDateTime(reader["AL_Time"]), Convert.ToString(reader["AL_ExpectedResult"]), Convert.ToString(reader["AL_ActualResult"])));
                 }
             }
             catch (Exception e)
@@ -53,8 +82,8 @@ namespace JamFactoryD.Controller.Facades
                 connect.Close();
                 connect.Dispose();
             }
-            
-            return ControlList;
+
+            return ActivityList;
         }
 
         internal static int GetProductsFromRecipe(Recipe recipe)
