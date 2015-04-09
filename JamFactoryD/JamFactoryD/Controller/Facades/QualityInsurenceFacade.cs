@@ -30,7 +30,7 @@ namespace JamFactoryD.Controller.Facades
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader reader = sqlCmd.ExecuteReader();
 
-                while (reader.Read() && reader.HasRows() )
+                while (reader.Read() && reader.HasRows )
                 {
                     ControlList.Add(new Model.QualityControl(
                                     Convert.ToInt32(reader["ID"]),
