@@ -30,7 +30,9 @@ namespace JamFactoryD.View.Group_D
             QualityControlController.GetQualityInsurence();
             for (int i = 0; i < QualityControlController.ControlList.Count; i++)
             {
-                Control_Combo.Items.Add(QualityControlController.ControlList[i].Name);
+                if (!Control_Combo.Items.Contains(QualityControlController.ControlList[i].Name)) { 
+                    Control_Combo.Items.Add(QualityControlController.ControlList[i].Name);
+                }
                 
             }
         }

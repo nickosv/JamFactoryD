@@ -19,7 +19,7 @@ namespace JamFactoryD.Controller.Facades
         internal static List<Model.QualityControl> GetControlByProductID(int productID)
         {
             List<Model.QualityControl> ControlList = new List<Model.QualityControl>();
-            List<Model.QualityControl> NoDublicateList = new List<Model.QualityControl>();
+            //List<Model.QualityControl> NoDublicateList = new List<Model.QualityControl>();
 
             SqlConnection connect = new SqlConnection(_connect);
             try
@@ -53,7 +53,7 @@ namespace JamFactoryD.Controller.Facades
                 connect.Close();
                 connect.Dispose();
             }
-            return NoDublicateList;
+            return ControlList;
         }
 
         internal static List<Model.QualityActivity> GetAcitivtyByControl(int controlID)
